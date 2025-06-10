@@ -1,0 +1,14 @@
+/google_meet/node_modules
+/frontend/node_modules
+/backend/node_modules
+
+/google_meet/package-lock.json
+/frontend/package-lock.json
+/frontend/.next
+/backend/package-lock.json
+
+/google_meet/.env
+/frontend/.env
+/backend/config/config.env
+
+/google_meet/config

@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+.wrapper {
+    display: flex;
+}
+
+/* ============================== Main code ============================ */
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fff;
+    min-width: 0;
+}
+.main.expand{
+    transform: translateX(260px);
+    width: calc(100% - 260px);
+}
+/* ============================== Main code ============================ */
+/* ============================== Navbar code ============================ */
+
+
+
+.dropdown-left{
+    top: 50px !important;
+    left: -155px !important;
+}
+
+/* .nav-custom-style{
+    position: fixed !important;
+    width: -webkit-fill-available !important;
+    z-index: 1 !important;
+} */
+.navbar-expand .navbar-collapse {
+    min-width: 200px;
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+}
+/* ============================== Navbar code ============================ */
+/* ============================== Sidebar code ============================ */
+
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .25s ease-in-out;
+    background-color: #0e2238;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+
+.toggle-btn {
+    display: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+.toggle-btn.show{
+    display: block;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-logo{
+    transform: translate(-70px, 0px);
+    animation: move .25s ease;
+}
+@keyframes move {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(-70px, 0px);
+    }
+}
+
+#sidebar.expand a.sidebar-link span {
+    animation: fadeIn .25s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i,
+.dropdown-item i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.sidebar-body{
+    position: fixed;
+    width: inherit;
+}
+.sidebar-link.active {
+    background-color: #ffffff !important; /* Change the background color */
+    color: #000000 !important; /* Change the text color */
+    border-left: 3px solid #3b7ddd;
+}
+
+/* --------------------------  Sidebar Hide code  ------------------------- */
+@media (min-width: 577px) {
+    #sidebar {
+        height: 100vh;
+        position: fixed !important;
+        transform: translateX(-70px);
+    }
+    
+    #sidebar.expand {
+        width: 260px;
+        min-width: 260px;
+        position: relative;
+    }
+    .sidebar-body{
+        position: fixed;
+        width: -webkit-fill-available;
+    }
+    
+    #sidebar.small-expand{
+        transform: translateX(0px);
+    }
+    .toggle-btn.show{
+        display: none;
+    }
+    
+    .sidebar-Toggler{
+        display: block;
+    }
+    .selectedMenu{
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 576px){
+
+    #sidebar {
+        height: 100vh;
+        position: fixed !important;
+        transform: translateX(-70px);
+    }
+
+    #sidebar.expand {
+        width: 260px;
+        min-width: 100%;
+    }
+    .sidebar-body{
+        position: fixed;
+        width: -webkit-fill-available;
+    }
+
+    #sidebar.small-expand{
+        transform: translateX(0px);
+    }
+
+    .toggle-btn.show{
+        display: block;
+    }
+    
+    .sidebar-Toggler{
+        display: block;
+    }
+    .selectedMenu{
+        font-size: 1rem;
+    }  
+
+}
+/* ============================== Sidebar code ============================ */
+.Layout-Fixed-scroll{
+    overflow-y: scroll;
+    height: calc(100vh - 50px);
+}
+
+.Layout-Fixed-scroll::-webkit-scrollbar{
+    display: none;
+}
+/* ============================ SpreadSheet code ============================ */
+
+table th:nth-child(1), table td:nth-child(1) {
+    background-color: #f9f9f9; 
+    width: 40px !important;                 /* Minimum width for the serial number column */
+    text-align: center;
+}
+  
+/* ============================== SpreadSheet code ============================ */
+/* ============================== Employee Sheet code ============================ */
+
+.status {
+    position: relative;
+    padding-left: 25px;
+    display: inline-block;
+  }
+  
+  .status::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .status-active::before {
+    background-color: green;
+  }
+  
+  .status-inactive::before {
+    background-color: orange;
+  }
+  
+  .status-suspended::before {
+    background-color: red;
+  }
+  .hide-scrollbar::-webkit-scrollbar{
+    display: none;
+  }
+/* ============================== Employee Sheet code ============================ */
+/* ================================= Login=============================== */
+
+.right-div{
+    /* background: linear-gradient(to bottom, #ffffff,); */
+    background: linear-gradient(to bottom, #1261a0, #03045e);
+    height: 100vh
+}
+
+/* ================================= Login ============================== */
+/* ============================Loader====================================== */
+
+.loader {
+    --dim: 3rem;
+    width: var(--dim);
+    height: var(--dim);
+    position: relative;
+    animation: spin988 2s linear infinite;
+  }
+  
+  .loader .circle {
+    --color: rgba(13,110,253,1);
+    --dim: 1.2rem;
+    width: var(--dim);
+    height: var(--dim);
+    background-color: var(--color);
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .loader .circle:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  
+  .loader .circle:nth-child(2) {
+    top: 0;
+    right: 0;
+  }
+  
+  .loader .circle:nth-child(3) {
+    bottom: 0;
+    left: 0;
+  }
+  
+  .loader .circle:nth-child(4) {
+    bottom: 0;
+    right: 0;
+  }
+  
+  @keyframes spin988 {
+    0% {
+      transform: scale(1) rotate(0);
+    }
+  
+    20%, 25% {
+      transform: scale(1.3) rotate(90deg);
+    }
+  
+    45%, 50% {
+      transform: scale(1) rotate(180deg);
+    }
+  
+    70%, 75% {
+      transform: scale(1.3) rotate(270deg);
+    }
+  
+    95%, 100% {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+/* ============================Loader====================================== */
+  .curtain-modal {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    background: rgba(0, 0, 0, 0.05);
+    margin: 10px 0;
+    padding: 0;
+    border-radius: 5px;
+  }
+  
+  .curtain-modal.open {
+    max-height: 500px; /* Adjust height as needed */
+    padding: 10px;
+  }
+  
+  .curtain-content {
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .curtain-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+
+/* ======================================================================================== */

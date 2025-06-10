@@ -1,0 +1,28 @@
+{
+  "name": "google-meet-nodejs-quickstart",
+  "version": "1.0.0",
+  "description": "A simple Node.js command-line application that makes requests to the Google Meet API.",
+  "private": true,
+  "dependencies": {
+    "@google-apps/meet": "^0.1.1",
+    "@google-cloud/local-auth": "^2.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "google-auth-library": "^9.15.1",
+    "googleapis": "^146.0.0",
+    "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "Apache-2.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "type": "commonjs"
+}
