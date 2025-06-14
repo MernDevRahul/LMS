@@ -8,7 +8,7 @@ export const MainAdminContext = createContext();
 
 
 async function getOTP(state, email) {
-  const response = await API.get(`/auth/admin/otp?email=${email}`);
+  const response = await API.get(`/api/auth/admin/otp?email=${email}`);
   return response.data;
 }
 
