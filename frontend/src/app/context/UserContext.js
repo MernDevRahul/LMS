@@ -12,7 +12,7 @@ async function EmployeeLogin(state, body) {
     req.headers.authorization = `bearer ${state.token}`;
     return req;
   });
-  const response = await API.post("/employee/login", body);
+  const response = await API.post("/api/employee/login", body);
   //   console.log(response?.data)
   return response?.data;
 }

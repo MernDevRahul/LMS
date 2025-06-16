@@ -4,6 +4,7 @@ import { UserContext } from '@/app/context/UserContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import BatchCard from '@/app/components/card/BatchCard';
+import toast from 'react-hot-toast';
 
 
   // Array of month names
