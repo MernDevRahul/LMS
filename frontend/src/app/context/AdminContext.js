@@ -21,7 +21,7 @@ async function loginAdmin(state,body) {
 console.log(body);
 
   const response = await API.post(  
-    "/auth/admin/loginAdmin/",
+    "/api/auth/admin/loginAdmin",
     body
   );
   // console.log("ok1");

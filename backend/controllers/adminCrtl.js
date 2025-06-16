@@ -4,7 +4,7 @@ const Admin = require("../model/admin");
 const bcrypt = require("bcrypt")
 
 exports.createAdmin = async (req, res) => {
-  try {
+  try {    
     const { Email, password } = req.body;
     // Check if all required fields are present
     if (!Email || !password) {
